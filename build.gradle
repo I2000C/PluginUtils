@@ -1,0 +1,62 @@
+plugins{
+    id 'java'
+    id 'maven-publish'
+}
+
+ext{
+    version='1.0'
+    mainClass='me.i2000c.plugin_utils.PluginUtils'
+    groupId='me.i2000c.plugin_utils'
+    artifactId=project.name
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+java.sourceCompatibility = '8'
+java.targetCompatibility = '8'
+
+repositories{
+    mavenCentral()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots' }
+    maven { url 'https://libraries.minecraft.net' }
+    maven { url 'https://maven.enginehub.org/repo/' }
+}
+
+dependencies{
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT:javadoc'
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT:sources'
+    compileOnly 'com.github.cryptomorin:XSeries:9.1.0'
+    compileOnly 'com.github.cryptomorin:XSeries:9.1.0:javadoc'
+    compileOnly 'com.github.cryptomorin:XSeries:9.1.0:sources'
+    compileOnly 'com.sk89q.worldedit:worldedit-core:7.2.2'
+    compileOnly 'com.sk89q.worldedit:worldedit-core:7.2.2:javadoc'
+    compileOnly 'com.sk89q.worldedit:worldedit-core:7.2.2:sources'
+    compileOnly 'com.mojang:authlib:1.5.21'
+}
+
+
+javadoc{
+    title = project.ext.artifactId + ' v' + project.ext.version + ' API'
+    options.addStringOption("sourcepath", "")
+}
+task javadocJar(type: Jar, dependsOn: javadoc){
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+task sourcesJar(type: Jar, dependsOn: classes){
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+publishing{
+    publications{
+        maven(MavenPublication){
+            groupId = project.ext.groupId
+            artifactId = project.ext.artifactId
+            version = project.ext.version
+            artifact javadocJar
+            artifact sourcesJar
+            
+            from components.java
+        }
+    }
+}

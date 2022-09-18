@@ -1,0 +1,55 @@
+{
+  "isRunnable": false,
+  "isGradleProject": true,
+  "copyJarToProjectDir": false,
+  "generateGitignore": true,
+  "generateJflexCupDependencies": false,
+  "javaVersion": 8,
+  "jarName": "PluginUtils",
+  "mainClassName": "PluginUtils",
+  "mainClassPackage": "me.i2000c.plugin_utils",
+  "version": "1.0",
+  "localLibraries": [],
+  "urlLibraries": [],
+  "gradleLibraries": [
+    {
+      "downloadJavadoc": true,
+      "downloadSources": true,
+      "name": "org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT",
+      "scope": "COMPILE_ONLY"
+    },
+    {
+      "downloadJavadoc": true,
+      "downloadSources": true,
+      "name": "com.github.cryptomorin:XSeries:9.1.0",
+      "scope": "COMPILE_ONLY"
+    },
+    {
+      "downloadJavadoc": true,
+      "downloadSources": true,
+      "name": "com.sk89q.worldedit:worldedit-core:7.2.2",
+      "scope": "COMPILE_ONLY"
+    },
+    {
+      "downloadJavadoc": false,
+      "downloadSources": false,
+      "name": "com.mojang:authlib:1.5.21",
+      "scope": "COMPILE_ONLY"
+    }
+  ],
+  "gradleRepositories": [
+    {
+      "url": "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+    },
+    {
+      "url": "https://libraries.minecraft.net"
+    },
+    {
+      "url": "https://maven.enginehub.org/repo/"
+    }
+  ],
+  "generatePublishSettings": true,
+  "generateJavadoc": true,
+  "generateSources": true,
+  "isSpigotPlugin": false
+}

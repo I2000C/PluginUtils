@@ -1,0 +1,9 @@
+* text=auto
+
+gradlew text eol=lf
+compile text eol=lf
+clean text eol=lf
+
+gradlew.bat text eol=crlf
+compile.cmd text eol=crlf
+clean.cmd text eol=crlf
